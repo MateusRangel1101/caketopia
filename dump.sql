@@ -8,6 +8,7 @@ CREATE TABLE usuarios (
     nome VARCHAR(150) NOT NULL,
     usuario VARCHAR(100) NOT NULL,
     senha VARCHAR(150) NOT NULL,
+    email text NOT NULL,
     funcao INTEGER REFERENCES funcoes(id)
 );
 
