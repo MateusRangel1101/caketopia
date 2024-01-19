@@ -8,11 +8,17 @@ const loginSchema = require('./validacoes/login');
 const usuarioSchema = require('./validacoes/usuarios');
 
 const login = require('./controladores/login');
-const { cadastrarUsuario } = require('./controladores/usuarios');
+const { cadastrarUsuario, detalharPerfil } = require('./controladores/usuarios');
+const { cadastrarIngrediente } = require('./controladores/ingredientes');
 
 rotas.post('/usuario', /*validarRequisicao(usuarioSchema),*/ cadastrarUsuario);
 rotas.post('/login', validarRequisicao(loginSchema), login);
 
-// rotas.use(verificarUsuarioLogado);
+rotas.use(verificarUsuarioLogado);
+
+rotas.get('/usuario', detalharPerfil);
+rotas.post('/ingrediente', cadastrarIngrediente);
+
+
 
 module.exports = rotas;
